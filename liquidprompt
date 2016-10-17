@@ -1100,7 +1100,7 @@ _lp_svn_branch_color()
     branch="$(_lp_svn_branch)"
     if [[ -n "$branch" ]]; then
         local changes
-        changes=$(( $(svn status ${LP_SVN_STATUS_OPTIONS-} | \grep -c -v "?") ))
+        changes=$(( $(svn status ${LP_SVN_STATUS_OPTIONS-} | \grep -c -v "^X") ))
         if (( changes == 0 )); then
             echo -nE "${LP_COLOR_UP}${branch}${NO_COL}"
         else
