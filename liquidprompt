@@ -1077,6 +1077,9 @@ _lp_svn_branch()
     elif [[ "$url" == */tags/?* ]]; then
         url="${url##*/tags/}"
         _lp_escape "${url%/*}"
+    elif [[ "$url" == */features/?* ]]; then
+        url="${url##*/features/}"
+        _lp_escape "${url%/*}"
     else
         _lp_escape "${root##*/}"
     fi
